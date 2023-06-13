@@ -36,6 +36,10 @@ public class CameraManager : MonoBehaviour
     {
         Move();
     }
+    private void Update()
+    {
+        
+    }
     void Move()
     {
         transform.position = Vector3.Lerp(transform.position, _playerPosition - _distance, 5 * Time.deltaTime);
