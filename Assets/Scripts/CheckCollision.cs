@@ -16,7 +16,13 @@ public class CheckCollision : MonoBehaviour
             other.gameObject.SetActive(false);
         }
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("deðidi");
+        }
+    }
     public void AddCoin()
     {
         score++;
