@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    
     public float runningSpeed=5;
     public float xSpeed;
     public float limitX=3.8f;
     float newX;
     float touchXDelta;
+
     void Start()
     {
+        
         EventManager.PlayerFirstPosition(transform.position);
     }
 

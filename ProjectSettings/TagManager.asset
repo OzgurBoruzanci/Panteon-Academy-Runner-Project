@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Coin
   - Obstacle
+  - FixedObstacle
+  - FinishPoint
+  - SpeedBoost
+  - Runner
   layers:
   - Default
   - TransparentFX
