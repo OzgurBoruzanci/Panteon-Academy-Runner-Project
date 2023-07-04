@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FinisPointManager : MonoBehaviour
 {
-    bool firstCome = true;
+    bool _firstCome = true;
     private void OnEnable()
     {
         EventManager.RestartBtn += RestartBtn;
@@ -15,13 +15,13 @@ public class FinisPointManager : MonoBehaviour
     }
     void RestartBtn()
     {
-        firstCome = true;
+        _firstCome = true;
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (firstCome)
+        if (_firstCome)
         {
-            firstCome = false;
+            _firstCome = false;
             EventManager.FirstCome(other.name);
         }
     }

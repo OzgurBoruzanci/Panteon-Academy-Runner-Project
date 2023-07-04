@@ -13,8 +13,8 @@ public class CanvasManager : MonoBehaviour
     public GameObject youWin;
     public GameObject youLose;
     public GameObject inGameRanking;
-    float score = 0;
-    string firstCmNm;
+    float _score = 0;
+    string _firstCmNm;
     private void OnEnable()
     {
         EventManager.AddCoin += AddCoin;
@@ -29,7 +29,7 @@ public class CanvasManager : MonoBehaviour
     }
     void FirstCome(string firstCm)
     {
-        firstCmNm = firstCm;
+        _firstCmNm = firstCm;
         if (firstCm=="Player")
         {
             youWin.gameObject.SetActive(true);
@@ -42,16 +42,16 @@ public class CanvasManager : MonoBehaviour
     void EndGame()
     {
         endPanel.gameObject.SetActive(true);
-        finishScore.text = "Score: " + score.ToString();
+        finishScore.text = "Score: " + _score.ToString();
         coinText.gameObject.SetActive(false);
         inGameRanking.gameObject.SetActive(false);
-        wonText.text = "Winner " + firstCmNm;
+        wonText.text = "Winner " + _firstCmNm;
         
     }
     public void AddCoin()
     {
-        score++;
-        coinText.text = "Score: " + score.ToString();
+        _score++;
+        coinText.text = "Score: " + _score.ToString();
     }
     public void RestartBtn()
     {

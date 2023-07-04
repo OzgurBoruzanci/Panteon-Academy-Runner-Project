@@ -7,12 +7,12 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class ClickToMove : MonoBehaviour
 {
-    NavMeshAgent m_Agent;
-    RaycastHit m_HitInfo = new RaycastHit();
+    NavMeshAgent _m_Agent;
+    RaycastHit _m_HitInfo = new RaycastHit();
 
     private void Start()
     {
-        m_Agent = GetComponent<NavMeshAgent>();
+        _m_Agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
@@ -20,9 +20,9 @@ public class ClickToMove : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             var ray =Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray.origin,ray.direction,out m_HitInfo))
+            if (Physics.Raycast(ray.origin,ray.direction,out _m_HitInfo))
             {
-                m_Agent.destination = m_HitInfo.point;
+                _m_Agent.destination = _m_HitInfo.point;
             }
         }
         

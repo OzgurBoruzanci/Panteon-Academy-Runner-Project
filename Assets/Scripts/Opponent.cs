@@ -10,10 +10,10 @@ public class Opponent : MonoBehaviour
     public NavMeshAgent opponentAgent;
     public GameObject target;
     public GameObject speedIcon;
-    Animator playerAnim;
+    Animator _playerAnim;
     public GameObject player;
     public int score;
-    bool won = false;
+    bool _won = false;
     Vector3 _firstPosition;
 
     private void OnEnable()
@@ -32,12 +32,12 @@ public class Opponent : MonoBehaviour
     {
         if (firstCm==this.gameObject.name)
         {
-            won = true;
+            _won = true;
         }
     }
     void RestartBtn()
     {
-        won=false;
+        _won = false;
     }
     void EndGame()
     {
@@ -46,7 +46,7 @@ public class Opponent : MonoBehaviour
     void Start()
     {
         opponentAgent = GetComponent<NavMeshAgent>();
-        playerAnim = player.GetComponentInChildren<Animator>();
+        _playerAnim = player.GetComponentInChildren<Animator>();
         _firstPosition = transform.position;
     }
 
@@ -84,13 +84,13 @@ public class Opponent : MonoBehaviour
             transform.Rotate(transform.rotation.x, 160, transform.rotation.z, Space.Self);
             this.GetComponent<Opponent>().opponentAgent.speed = 0;
             //EventManager.EndGame();
-            if (won)
+            if (_won)
             {
-                playerAnim.SetBool("Win", true);
+                _playerAnim.SetBool("Win", true);
             }
             else
             {
-                playerAnim.SetBool("Lose", true);
+                _playerAnim.SetBool("Lose", true);
             }
         }
     }

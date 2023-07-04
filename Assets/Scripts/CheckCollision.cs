@@ -7,11 +7,11 @@ using UnityEngine.AI;
 
 public class CheckCollision : MonoBehaviour
 {
-    Animator playerAnim;
+    Animator _playerAnim;
     public GameObject speedIcon;
     public int score;
     public TextMeshProUGUI coinText;
-    bool won = false;
+    bool _won = false;
     Vector3 _firstPosition;
     private void OnEnable()
     {
@@ -27,16 +27,16 @@ public class CheckCollision : MonoBehaviour
     {
         if (firstCm ==this.name)
         {
-            won= true;
+            _won = true;
         }
     }
     void RestartBtn()
     {
-        won=false;
+        _won = false;
     }
     private void Start()
     {
-        playerAnim = this.GetComponentInChildren<Animator>();
+        _playerAnim = this.GetComponentInChildren<Animator>();
         _firstPosition = transform.position;
     }
     private void OnTriggerEnter(Collider other)
@@ -70,13 +70,13 @@ public class CheckCollision : MonoBehaviour
             EventManager.EndGame();
             transform.Rotate(transform.rotation.x, 160, transform.rotation.z, Space.Self);
             this.GetComponent<PlayerManager>().runningSpeed = 0;
-            if (won)
+            if (_won)
             {
-                playerAnim.SetBool("Win", true);
+                _playerAnim.SetBool("Win", true);
             }
             else
             {
-                playerAnim.SetBool("Lose", true);
+                _playerAnim.SetBool("Lose", true);
             }
         }
     }
